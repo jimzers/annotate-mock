@@ -16,7 +16,7 @@ class User(db.Model):
 class Book(db.Model):
     __tablename__ = "books"
 
-    id = db.Column(db.Integer, primary_key=True)
+    book_id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.TEXT(65535))
     chapters = db.Column(db.Integer)
     has_access = db.Column(db.String(65535))
@@ -25,6 +25,7 @@ class Book(db.Model):
 class Annotation(db.Model):
     __tablename__ = "annotations"
 
-    id = db.Column(db.Integer, primary_key=True)
+    comment_id = db.Column(db.Integer, primary_key=True)
     book_id = db.Column(db.Integer, db.ForeignKey(Book.id), primary_true=True)
     text = db.Column(db.TEXT(65535))
+    location = db.Column(db.Integer)
